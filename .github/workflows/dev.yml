@@ -5,7 +5,7 @@ name: creators-checkout-dev.livebuy.io
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 env:
   NODE_VERSION: 18
