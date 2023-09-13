@@ -2,7 +2,7 @@ import PaymentSource from "@commercelayer/react-components/payment_source/Paymen
 import PaymentSourceBrandIcon from "@commercelayer/react-components/payment_source/PaymentSourceBrandIcon"
 import PaymentSourceBrandName from "@commercelayer/react-components/payment_source/PaymentSourceBrandName"
 import PaymentSourceDetail from "@commercelayer/react-components/payment_source/PaymentSourceDetail"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { useTranslation, Trans } from "react-i18next"
 
 import { OrderSummary } from "components/composite/OrderSummary"
@@ -56,6 +56,17 @@ export const StepComplete: React.FC<Props> = ({
   const { t } = useTranslation()
 
   const ctx = useContext(AppContext)
+
+  useEffect(() => {
+    if (ctx?.isComplete) {
+      window.parent.postMessage(
+        {
+          action: "lb_commercelayer_order_placed",
+        },
+        "*"
+      )
+    }
+  }, [ctx?.isComplete])
 
   if (!ctx) return null
 

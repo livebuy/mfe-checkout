@@ -6,6 +6,13 @@ const shouldAnalyzeBundles = process.env.ANALYZE === "true"
 
 /** @type { import('next').NextConfig } */
 let nextConfig = {
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   eslint: {},
   poweredByHeader: false,

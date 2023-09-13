@@ -1,16 +1,16 @@
-# Builds & Deploys the project to our Amazon S3 Prod bucket
-# which is exposed via CloudFront to creators-cart.livebuy.io
+# Builds & Deploys the project to our Amazon S3 Dev bucket
+# which is exposed via CloudFront to creators-checkout-dev.livebuy.io
 
-name: creators-cart.livebuy.io
+name: creators-checkout-dev.livebuy.io
 
 on:
-  release:
-    types: [released]
+  push:
+    branches: [master]
 
 env:
   NODE_VERSION: 18
-  AWS_S3_BUCKET: "lb-creators-cart"
-  AWS_CF_DISTRIBUTION_ID: "E1IEZC9BF6C5D9"
+  AWS_S3_BUCKET: "lb-creators-checkout-dev"
+  AWS_CF_DISTRIBUTION_ID: "E1L0Z8Y8ZN6178"
   AWS_REGION: "eu-central-1"
 
 jobs:
