@@ -12,6 +12,8 @@ env:
   AWS_S3_BUCKET: "lb-creators-cart"
   AWS_CF_DISTRIBUTION_ID: "E1IEZC9BF6C5D9"
   AWS_REGION: "eu-central-1"
+  NEXT_PUBLIC_SLUG: "livebuy"
+  NODE_ENV: "production"
 
 jobs:
   livebuy-popup:
@@ -29,6 +31,8 @@ jobs:
       - run: pnpm install
 
       - run: pnpm export
+        env:
+          NEXT_PUBLIC_SLUG: ${{ env.NEXT_PUBLIC_SLUG }}
 
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
