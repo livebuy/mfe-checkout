@@ -15,7 +15,7 @@ export const ErrorContainer = ({ children }: { children: ChildrenType }) => {
           <Main>
             <Error>{children}</Error>
           </Main>
-          <Footer />
+          {/* <Footer /> */}
         </Wrapper>
       </Container>
     </Base>

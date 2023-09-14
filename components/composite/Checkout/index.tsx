@@ -115,7 +115,7 @@ const Checkout: React.FC<Props> = ({
               <SummaryWrapper>
                 <OrderSummary appCtx={ctx} />
               </SummaryWrapper>
-              <Footer />
+              {/* <Footer /> */}
             </Sidebar>
           }
           main={

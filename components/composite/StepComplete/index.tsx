@@ -218,7 +218,7 @@ export const StepComplete: React.FC<Props> = ({
               </RecapCol>
             </RecapCustomer>
           </Recap>
-          <Footer />
+          {/* <Footer /> */}
         </Wrapper>
       </Bottom>
     </Base>
