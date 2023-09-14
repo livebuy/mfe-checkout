@@ -12,6 +12,10 @@ interface Props {
   openShippingAddress: (props: ShippingToggleProps) => void
 }
 
+const InivisibleContainer = styled.div`
+  display: none;
+`
+
 export const BillingAddressFormNew: React.FC<Props> = ({
   billingAddress,
   openShippingAddress,
@@ -69,12 +73,15 @@ export const BillingAddressFormNew: React.FC<Props> = ({
         />
       </Grid>
       <Grid>
-        <AddressInputGroup
-          fieldName="billing_address_state_code"
-          resource="billing_address"
-          type="text"
-          value={billingAddress?.state_code || ""}
-        />
+        <InivisibleContainer>
+          <AddressInputGroup
+            fieldName="billing_address_state_code"
+            resource="billing_address"
+            type="text"
+            value={"DE"}
+            required={false}
+          />
+        </InivisibleContainer>
         <AddressInputGroup
           fieldName="billing_address_zip_code"
           resource="billing_address"
@@ -82,12 +89,15 @@ export const BillingAddressFormNew: React.FC<Props> = ({
           value={billingAddress?.zip_code || ""}
         />
       </Grid>
-      <AddressInputGroup
-        fieldName="billing_address_phone"
-        resource="billing_address"
-        type="tel"
-        value={billingAddress?.phone || ""}
-      />
+      <InivisibleContainer>
+        <AddressInputGroup
+          fieldName="billing_address_phone"
+          resource="billing_address"
+          type="tel"
+          value={"1234567890"}
+          required={false}
+        />
+      </InivisibleContainer>
       {requiresBillingInfo && (
         <AddressInputGroup
           fieldName="billing_address_billing_info"

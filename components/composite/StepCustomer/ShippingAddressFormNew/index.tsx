@@ -9,6 +9,10 @@ interface Props {
   shippingAddress: NullableType<Address>
 }
 
+const InivisibleContainer = styled.div`
+  display: none;
+`
+
 export const ShippingAddressFormNew: React.FC<Props> = ({
   shippingAddress,
 }: Props) => {
@@ -62,12 +66,15 @@ export const ShippingAddressFormNew: React.FC<Props> = ({
       </Grid>
 
       <Grid>
-        <AddressInputGroup
-          fieldName="shipping_address_state_code"
-          resource="shipping_address"
-          type="text"
-          value={shippingAddress?.state_code || ""}
-        />
+        <InivisibleContainer>
+          <AddressInputGroup
+            fieldName="shipping_address_state_code"
+            resource="shipping_address"
+            type="text"
+            value={"DE"}
+            required={false}
+          />
+        </InivisibleContainer>
 
         <AddressInputGroup
           fieldName="shipping_address_zip_code"
@@ -77,12 +84,15 @@ export const ShippingAddressFormNew: React.FC<Props> = ({
         />
       </Grid>
 
-      <AddressInputGroup
-        fieldName="shipping_address_phone"
-        resource="shipping_address"
-        type="tel"
-        value={shippingAddress?.phone || ""}
-      />
+      <InivisibleContainer>
+        <AddressInputGroup
+          fieldName="shipping_address_phone"
+          resource="shipping_address"
+          type="tel"
+          value={"1234567890"}
+          required={false}
+        />
+      </InivisibleContainer>
     </Fragment>
   )
 }

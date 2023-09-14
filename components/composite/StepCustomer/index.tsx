@@ -115,8 +115,23 @@ export const StepCustomer: React.FC<Props> = () => {
   }
 
   const handleSave = async (params: { success: boolean; order?: Order }) => {
+    const hardcodedAddressInfo = {
+      phone: "1234567890",
+      state_code: "DE",
+    }
+
     setIsLocalLoader(true)
-    await setAddresses(params.order)
+    await setAddresses({
+      ...params.order,
+      billing_address: {
+        ...params.order?.billing_address,
+        ...hardcodedAddressInfo,
+      },
+      shipping_address: {
+        ...params.order?.shipping_address,
+        ...hardcodedAddressInfo,
+      },
+    })
 
     // it is used temporarily to scroll
     // to the next step and fix
