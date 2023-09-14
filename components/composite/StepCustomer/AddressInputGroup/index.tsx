@@ -130,6 +130,14 @@ export const AddressInputGroup: React.FC<Props> = ({
               shippingCountryCodeLock &&
                 fieldName === "shipping_address_country_code"
             )}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            options={[
+              {
+                label: "Germany",
+                value: "DE",
+              },
+            ]}
           />
           <Label htmlFor={fieldName}>{label}</Label>
         </>
