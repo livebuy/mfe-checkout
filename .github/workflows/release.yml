@@ -9,7 +9,7 @@ on:
 
 env:
   NODE_VERSION: 18
-  AWS_S3_BUCKET: "lb-creators-cart"
+  AWS_S3_BUCKET: "lb-creators-checkout"
   AWS_CF_DISTRIBUTION_ID: "E1IEZC9BF6C5D9"
   AWS_REGION: "eu-central-1"
   NEXT_PUBLIC_SLUG: "livebuy"
