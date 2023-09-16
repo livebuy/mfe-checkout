@@ -134,8 +134,20 @@ export const AddressInputGroup: React.FC<Props> = ({
             // @ts-ignore
             options={[
               {
+                label: "Austria",
+                value: "AT",
+              },
+              {
                 label: "Germany",
                 value: "DE",
+              },
+              {
+                label: "Greece",
+                value: "GR",
+              },
+              {
+                label: "Switzerland",
+                value: "CH",
               },
             ]}
           />
